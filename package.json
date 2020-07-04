@@ -10,7 +10,8 @@
     "serve": "nuxt serve"
   },
   "dependencies": {
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.13.0",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {}
 }
