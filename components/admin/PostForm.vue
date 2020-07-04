@@ -44,11 +44,24 @@
         type : Boolean,
         required : false,
         default : false
+      },
+      post : {
+        type : Object,
+        required : false
       }
     },
     methods : {
       onSubmit(){
         this.$emit("submit", this.post)
+      }
+    },
+    created() {
+      this.post = this.post ? this.post : {
+          id : null,
+          title : null,
+          subTitle : null,
+          text : null,
+          author : null
       }
     }
   }

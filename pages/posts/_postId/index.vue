@@ -4,22 +4,19 @@
 
 <script>
   import PostDetail from "@/components/post/PostDetail"
+  import axios from "axios"
+
   export default {
     components : {
-      PostDetail
+        PostDetail
     },
-    asyncData(context, callback) {
-        setTimeout(() => {
-            callback(null, {
-              fetchedPost : {
-                id : 1,
-                title : "Vue.js",
-                subTitle: "Vue.js eğitimi başlıyorr!!",
-                text : "Router, Vuex, Axios, Resource, Router, Vuex, Axios, Resource, Router, Vuex, Axios, Resource...",
-                author: "Umut Incek"
+   asyncData(context) {
+        return axios.get("https://article-nuxt.firebaseio.com/posts/" + context.params.postId + ".json")
+          .then(response => {
+              return {
+                  fetchedPost : response.data
               }
-            })
-        },1500)
+          })
     }
   }
 </script>
